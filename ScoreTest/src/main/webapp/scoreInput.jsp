@@ -14,9 +14,9 @@
 
 <form action="score" method = "post">
 <div class="container mt-3">
-<h2> 학생이름 : </h2><br>
+<h2> 학생이름 : </h2><br><br>
 <input type="text" name="name" placeholder="이름을 입력하세요." text-center><br>
-<h2>시험점수 : </h2><br>
+<h2>시험점수 : </h2><br><br>
 <input type="text" name="score" placeholder = "시험점수를 입력하세요."><br>
 
 
