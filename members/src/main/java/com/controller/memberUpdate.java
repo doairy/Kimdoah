@@ -15,64 +15,78 @@ import com.dao.memberDAO;
 import com.vo.member;
 
 /**
- * 삽입버튼을 눌렀을 때 doGet으로 입력폼(insert.jsp)이동
- * 입력폼에서 등록버튼을 눌렀을 때 doPost로 데이터베이스를 처리
+ * Servlet implementation class memberUpdate
  */
-@WebServlet("/insert")
-public class memberInsert extends HttpServlet {
+@WebServlet("/update")
+public class memberUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/*
-	 * list.jsp에서 삽입버튼을 눌렀을 때
-	 */
 	
+	/*
+	 * list.jsp에서 수정버튼을 눌렀을 때 select 데이터베이스 사용
+	 * update.jsp페이지로 이동
+	 */
+ 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//준비
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		//이동
-		RequestDispatcher rd = request.getRequestDispatcher("insert.jsp");
-		rd.forward(request, response);
-		
-	}
-
-	/**
-	 * insert.jsp에서 등록버튼을 눌렀을 때
-	 * 데이터베이스에 관련 자료를 저장 
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//준비
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		
-		//데이터베이스 작업
+		//수정할 데이터를 조회해서 페이지로 이동작업
 		try {
 			ServletContext sc = this.getServletContext();
 			Connection conn = (Connection)sc.getAttribute("conn");
 			
-			//값준비(데이터형변환, 값을 저장)
-			member temp = new member(); //com.vo.member 선언
+			//list.jsp에서 [수정]에서 update?mon=xxx 이부분
+			int mon = Integer.parseInt(request.getParameter("mon"));
+			
+			memberDAO memberdao = new memberDAO(); // 조회작업을 위한 데이터베이스
+			memberdao.setConnection(conn);
+			
+			member member = memberdao.selectOne(mon); // 데이터베이스 조회
+			
+			request.setAttribute("members", member); // 조회자료 저장
+			
+		}catch(Exception e) {
+			
+		}
+		
+		//이동
+		RequestDispatcher rd = request.getRequestDispatcher("update.jsp");
+		rd.forward(request, response);
+	}
+/*
+ * update.jsp에서 수정버튼을 눌렀을 때 update 데이터베이스 사용
+ * list.jsp페이지로 이동
+ */
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+		
+		try {
+			ServletContext sc = this.getServletContext();
+			Connection conn = (Connection)sc.getAttribute("conn");
+			
+			member temp = new member();
+			temp.setMon(Integer.parseInt(request.getParameter("Mon"))); //()안에 이름은 update.jsp name을 참고
 			temp.setMname(request.getParameter("mname"));
 			temp.setEmail(request.getParameter("email"));
-			temp.setEmail(request.getParameter("pwd"));
+			temp.setPwd(request.getParameter("pwd"));
 			
 			memberDAO memberdao = new memberDAO();
 			memberdao.setConnection(conn);
 			
-			
-			memberdao.insert(temp); // 가공된 temp전달
-
-			
-		} catch(Exception e) {
+			memberdao.update(temp);
+		}catch(Exception e) {
 			
 		}
 		
 		
-		
-		//이동
-		response.sendRedirect("list");
-		
 	}
-
 }
+
+
+	
+
+

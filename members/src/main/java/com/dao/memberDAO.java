@@ -61,6 +61,7 @@ public class memberDAO {
 		return members;
 	}catch(Exception e) {
 		throw e;
+		
 	}finally {
 		try {if(rs!=null) rs.close();}catch (Exception e) {}
 		try {if(stmt!=null) stmt.close();}catch (Exception e) {}
@@ -100,6 +101,7 @@ public class memberDAO {
 			stmt.setString(3, member.getPwd());
 		
 			return stmt.executeUpdate();
+			
 		}catch(Exception e) {
 			throw e;
 		}finally {
@@ -107,6 +109,67 @@ public class memberDAO {
 		}
 		
 	}
-		
+		//update 반드시 수정 자료가 필요(select - 수정할 레코드 1개와서)
+
+
+public member selectOne(int mon) throws Exception {
+//public throws Exception {
+   //메서드 입력값과 출력값이 존재
+   PreparedStatement stmt = null; //문법
+   ResultSet rs = null; //결과값 저장
+   String sql = null; //질의어 작성
+   
+   //데이터베이스 실행
+   try {
+      sql = "SELECT mon, mname, email FROM members WHERE mon=?"; //테이블에서 특정 필드만 읽어온다
+      stmt = connection.prepareStatement(sql); //질의어 생성
+      stmt.setInt(1, mon);
+      rs = stmt.executeQuery(sql);
+      
+      
+      rs.next(); //1개를 읽어서
+
+      member temp = new member(); //한레코드를 저장할 변수
+      //저장할 VO     읽어온 테이블 필드
+      temp.setMon(rs.getInt("mon"));
+      temp.setMname(rs.getString("mname"));
+      temp.setEmail(rs.getString("email"));
+
+      //해당 결과를 전달
+      return temp;
+      
+   } catch(Exception e) {
+      throw e;
+   } finally {
+      try {if(rs!=null) rs.close();} catch(Exception e) {}
+      try {if(stmt!=null) stmt.close();} catch(Exception e) {}
+   }
 }
+
+public int update(member member) throws Exception {
+	PreparedStatement stmt = null; //문법
+	   ResultSet rs = null; //결과값 저장
+	   String sql = null; //질의어 작성
+	   
+	   try {
+		      sql = "UPDATE members set mname=?,email=?,pwd=? where mon=?";
+		      stmt = connection.prepareStatement(sql);
+		      stmt.setString(1, member.getMname());
+		      stmt.setString(2, member.getEmail());
+		      stmt.setString(3, member.getPwd());
+		      stmt.setInt(4, member.getMon());
+		      
+		      
+		      return stmt.executeUpdate();
+		      
+		      
+		   } catch(Exception e) {
+		      throw e;
+		   } finally {
+		      try {if(rs!=null) rs.close();} catch(Exception e) {}
+		      try {if(stmt!=null) stmt.close();} catch(Exception e) {}
+		   }
+}
+}
+
 

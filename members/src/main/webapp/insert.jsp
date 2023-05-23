@@ -14,8 +14,8 @@
 <!-- 삽입/수정 form, 삭제는 페이지 없이 구현 -->
 <form action='insert' class="col-3">
   <div class="mb-3 mt-3">
-    <label for="tname" class="form-label">회원이름:</label>
-    <input type="text" class="form-control" id="tname" placeholder="회원이름을 입력하세요" name="tname">
+    <label for="mname" class="form-label">회원이름:</label>
+    <input type="text" class="form-control" id="mname" placeholder="회원이름을 입력하세요" name="mname">
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">이메일:</label>

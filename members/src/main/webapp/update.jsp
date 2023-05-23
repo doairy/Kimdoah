@@ -21,8 +21,8 @@ member members = (member)request.getAttribute("members");
 <form action="update" method="post" class="col-3">
   <input type="hidden" name="mon" value=<%=members.getMon() %>> <!-- 숨겨진 기본키 -->
   <div class="mb-3 mt-3">
-    <label for="tname" class="form-label">회원이름:</label>
-    <input type="text" class="form-control" id="tname" placeholder="회원이름을 입력하세요." name="tname" value=<%=members.getMname() %>>
+    <label for="mname" class="form-label">회원이름:</label>
+    <input type="text" class="form-control" id="mname" placeholder="회원이름을 입력하세요." name="mname" value=<%=members.getMname() %>>
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">이메일:</label>
