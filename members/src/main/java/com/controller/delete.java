@@ -70,7 +70,7 @@ public class delete extends HttpServlet {
 				response.sendRedirect("list"); // 작업컨트롤로 이동
 			
 	}
-}
+
 			
 	
 	
@@ -78,9 +78,10 @@ public class delete extends HttpServlet {
 	/**
 	 * 삭제에서는 post가 필요없다.
 	 */
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//	
-//	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	doGet(request, response);
+	}
+	}
 //		
 //		
 //		//
