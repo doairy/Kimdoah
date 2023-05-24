@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>mvcboard</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <context-param>
+  	<param-name>driver</param-name>
+  	<param-value>com.mysql.jdbc.Driver</param-value> <!-- Driver에 대소문자 -->
+  </context-param>
+  <context-param>
+  	<param-name>url</param-name>
+  	<!-- 포트번호, 데이터베이스 이름을 정확히 대소문자 구분 -->
+  	<param-value>jdbc:mysql://localhost:3306/servlet</param-value> <!-- Driver에 대소문자 -->
+  </context-param>
+  <context-param>
+  	<param-name>username</param-name>
+  	<param-value>sample</param-value> 
+  </context-param>
+  <context-param>
+  	<param-name>password</param-name>
+  	<param-value>1234</param-value> <!-- 환경파일은 오류 및 경고가 존재하면 안된다. -->
+  </context-param>
+  <servlet><!-- 서버구동시 자동실행되는 클래스를 설정 -->
+  	<servlet-name>ServerInitt</servlet-name>
+  	<servlet-class>com.controller.ServerInitt</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+</web-app>
