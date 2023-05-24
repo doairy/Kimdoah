@@ -33,10 +33,10 @@
 <!-- 삭제폼  -->
 <div class="container mt-3">
   <h2>건강검진 삭제</h2>
-  <form action="#" class ="col-3">
+  <form action="delete" method ="post" class ="col-3">
     <div class="mb-3 mt-3">
-      <label for="email">검진번호:</label>
-      <input type="number" class="form-control" id="email"  name="email">
+      <label for="id">검진번호:</label>
+      <input type="number" class="form-control" id="id"  name="id">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
    </form>

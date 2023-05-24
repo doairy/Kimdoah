@@ -34,34 +34,34 @@
 
 <div class="container mt-3">
   <h2>건강검진 등록</h2>
-  <form action="#" class ="col-3">
+  <form action="insert" method = "post" class ="col-3">
     <div class="mb-3 mt-3">
-      <label for="email">검진번호:</label>
-      <input type="number" class="form-control" id="email" placeholder="Enter email" name="email">
+      <label for="id">검진번호:</label>
+      <input type="number" class="form-control" id="id"  name="id">
     </div>
     <div class="mb-3">
-      <label for="pwd">검진일:</label>
-      <input type="date" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-    </div>
-    
-    <div class="mb-3">
-      <label for="pwd">몸무게:</label>
-      <input type="number" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+      <label for="hdate">검진일:</label>
+      <input type="date" class="form-control" id="hdate" name="hdate">
     </div>
     
     <div class="mb-3">
-      <label for="pwd">키:</label>
-      <input type="number" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+      <label for="hweight">몸무게:</label>
+      <input type="number" class="form-control" id="hweight" name="hweight">
     </div>
     
     <div class="mb-3">
-      <label for="pwd">혈당수치:</label>
-      <input type="number" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+      <label for="hheight">키:</label>
+      <input type="number" class="form-control" id="hheight"  name="hheight">
     </div>
     
     <div class="mb-3">
-      <label for="pwd">직원번호:</label>
-      <input type="number" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+      <label for="hblood">혈당수치:</label>
+      <input type="number" class="form-control" id="hblood" name="hblood">
+    </div>
+    
+    <div class="mb-3">
+      <label for="eid">직원번호:</label>
+      <input type="number" class="form-control" id="eid" name="eid">
     </div>
     
     <div class="form-check mb-3">
@@ -69,7 +69,7 @@
         <input class="form-check-input" type="checkbox" name="remember"> Remember me
       </label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">추가</button>
   </form>
 </div>
 

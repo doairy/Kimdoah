@@ -9,7 +9,10 @@ import java.util.List;
 import java.sql.Date;
 import com.vo.HealthVO;
 
+
+
 public class HealthDAO {
+
 	Connection connection; //데이터베이스 연결을 위한 전역 변수
 	
 	public void setConnection(Connection connection) {
@@ -29,26 +32,29 @@ public class HealthDAO {
 		//? 없으면 createStatement()를 생성
 		
 		stmt = connection.createStatement(); // 데이터베이스 구동
+		
 		rs = stmt.executeQuery(sql);
 		
 	
 			
 			//결과처리(변수명은 클래스명을 소문자로 구성)
 			ArrayList<HealthVO> healthvo = new ArrayList<HealthVO>();
-			
+			System.out.println("문법상에 오류가 없음");
 			//여러개의 결과값이 존재하면
 			 while(rs.next()) {
+				 System.out.println("데이터 조회 개수처리");
 				 HealthVO temp = new HealthVO();
 				 //저장작업
-				 temp.setEid(rs.getInt("eid"));
-				 temp.setHblood(rs.getInt("hlbood"));
+				 temp.setId(rs.getInt("id"));
+				 temp.setHblood(rs.getInt("hblood"));
 				 temp.setHdate(rs.getDate("hdate"));
 				 temp.setHheight(rs.getInt("hheight"));
 				 temp.setHweight(rs.getInt("hweight"));
-				 temp.setId(rs.getInt("id"));
+				 temp.setEid(rs.getInt("eid"));
 				 
 				 healthvo.add(temp); // 배열에 저장
 			 }
+			 System.out.println("정상적인 데이터베이스 조회");
 			 return healthvo;
 			
 		} 
@@ -60,9 +66,11 @@ public class HealthDAO {
 		PreparedStatement stmt = null;
 		String sql = null;
 		//?가 있으면 preparestatement
-		sql = "INSERT INTO health (hdate,hweight, hheight,hblood, eid) VALUES (?,?,?,?,?)"; 
+		sql = "INSERT INTO health (id,hweight, hheight,hblood, eid) VALUES (?,?,?,?,?)"; 
 		stmt = connection.prepareStatement(sql);
-		stmt.setDate(1, (Date)healthvo.getHdate());
+//		stmt.setDate(1, healthvo.getHdate()));  //healthvo.getHdate());
+
+		stmt.setInt(1, healthvo.getId());
 		stmt.setInt(2, healthvo.getHweight());
 		stmt.setInt(3, healthvo.getHheight());
 		stmt.setInt(4, healthvo.getHblood());
@@ -77,7 +85,7 @@ public class HealthDAO {
 		PreparedStatement stmt = null;
 		String sql = null;
 		
-		sql = "DELETE FROM health WHERE `health`.`id` = ?";
+		sql = "DELETE FROM health WHERE health.id = ?";
 		stmt = connection.prepareStatement(sql);
 		stmt.setInt(1, id);
 		
@@ -89,20 +97,19 @@ public class HealthDAO {
 		ResultSet rs = null;
 		String sql = null;
 		
-		sql = "SELECT * FROM `health` WHERE `id` =?" ;
+		sql = "SELECT * FROM health WHERE id =?" ;
 		
 		stmt = connection.prepareStatement(sql);
 		stmt.setInt(1, id);
 		
 		rs = stmt.executeQuery();
-		
-		
+	
 			rs.next(); 
 			HealthVO temp = new HealthVO();
 				 //저장작업
 		temp.setEid(rs.getInt("eid"));
-		temp.setHblood(rs.getInt("hlbood"));
-		temp.setHdate(rs.getDate("hdate"));
+		temp.setHblood(rs.getInt("hblood"));
+//		temp.setHdate(rs.getString("hdate"));
 		temp.setHheight(rs.getInt("hheight"));
 		temp.setHweight(rs.getInt("hweight"));
 		temp.setId(rs.getInt("id"));
@@ -118,12 +125,12 @@ public class HealthDAO {
 		String sql = null;
 		  sql = "UPDATE health SET hdate =?, hweight =?, hheight =?, hblood =?, eid= ? WHERE id =?";
 	      stmt = connection.prepareStatement(sql);
-	      stmt.setDate(1, (Date)healthvo.getHdate());
-	      stmt.setInt(2, healthvo.getHweight());
-	      stmt.setInt(3, healthvo.getHheight());
-	      stmt.setInt(4, healthvo.getHblood());
-	      stmt.setInt(5, healthvo.getEid());
-	      stmt.setInt(6, healthvo.getId()); // 변경하고자 하는 번호
+//	      stmt.setString(1, healthvo.getHdate());
+	      stmt.setInt(1, healthvo.getHweight());
+	      stmt.setInt(2, healthvo.getHheight());
+	      stmt.setInt(3, healthvo.getHblood());
+	      stmt.setInt(4, healthvo.getEid());
+	      stmt.setInt(5, healthvo.getId()); // 변경하고자 하는 번호
 	      
 	      return stmt.executeUpdate();
 	      
