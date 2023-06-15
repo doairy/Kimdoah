@@ -26,8 +26,12 @@
   <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
   <br>
+
+  
+<h3 align="center"> JAVA/Spring_안경 쇼핑몰 프로젝트 - 진행중 입니다 !  </br>
+                    아직 미완성이지만 shopp < 폴더 위주로 봐주시면 감사드리겠습니다. </h3>
+<h3 align="center"> 은행 / 건강관리 / 게시판은 혼자 공부하던 내용을 깃 이용해서 올려봤습니다. </h3>
 </div>
 
 
 
-은행 / 건강관리 / 게시판은 혼자 공부하려고 정리했던 내용입니다.
