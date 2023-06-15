@@ -27,63 +27,32 @@
 						      <label for="pdnum">상품번호</label>
 						      <input type="text" class="form-control" id="pdnum" name="pdnum">
                     		</div>
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>카테고리코드</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="catecode">
-                    			</div>
-                    		</div>            
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품명</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="pdname">
-                    			</div>
-                    		</div>            
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상세정보</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="pdcontent">
-                    			</div>
-                    		</div>             
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품 가격</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="pdprice">
-                    			</div>
-                    		</div>          
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>상품 가격</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="bookPrice">
-                    			</div>
-                    		</div>               
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>수량</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="pdcnt">
-                    			</div>
-                    		</div>          
-                    		<div class="form_section">
-                    			<div class="form_section_title">
-                    				<label>이미지</label>
-                    			</div>
-                    			<div class="form_section_content">
-                    				<input name="pdimg1">
-                    			</div>
-                    		</div>          		
+                    		<div class="form-group col-3">
+						      <label for="catecode">카테고리</label>
+						      <input type="text" class="form-control" id="catecode" name="catecode">
+                    		</div>
+                    		<div class="form-group col-3">
+						      <label for="catecode">상품명</label>
+						      <input type="text" class="form-control" id="pdname" name="pdname">
+                    		</div>
+                    		<div class="form-group col-3">
+						      <label for="catecode">상세정보</label>
+						      <input type="text" class="form-control" id="pdcontent" name="pdcontent">
+                    		</div>
+                    		<div class="form-group col-3">
+						      <label for="catecode">상품가격</label>
+						      <input type="text" class="form-control" id="pdprice" name="pdprice">
+                    		</div>
+                    		<div class="form-group col-3">
+						      <label for="catecode">수량</label>
+						      <input type="text" class="form-control" id="pdcnt" name="pdcnt">
+                    		</div>
+                    		<div class="form-group col-3">
+						      <label for="catecode">이미지</label>
+						      <input type="text" class="form-control" id="pdimg1" name="pdimg1">
+                    		</div>
                     		
+                    	
                    		</form>
                    			<div class="btn_section">
                    			<button type="reset" class="btn btn-danger">정정</button>

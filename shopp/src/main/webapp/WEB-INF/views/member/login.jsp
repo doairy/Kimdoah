@@ -36,16 +36,16 @@
 
 <c:if test ="${member != null}">
 	<c:if test="${member.verify == 2}">
-	<li>
-		<a href="/admin/index">관리자 화면</a>
-	</li>
+		<h2 align="center"> ${member.mid}님 환영합니다. <h2>
+	<button type="button" class="btn btn-default btn-lg btn-block" onclick ="location.href='/admin/index'">관리자 메뉴</button>
+	 <button type="button" class="btn btn-default btn-lg btn-block" onclick ="location.href='/member/logout'">로그아웃</button>
 	</c:if>
-	<li>
-	 	${member.mid}님 환영합니다.
-	</li>
-	<li>
-		<a href="/member/logout">로그아웃</a>
-	</li>
+	
+	<c:if test="${member.verify != 2}">
+		<h2 align="center"> ${member.mid}님 환영합니다. <h2>
+	  <button type="button" class="btn btn-default btn-lg btn-block" onclick ="location.href='/member/logout'">로그아웃</button>
+	</c:if>
+	
 </c:if>
 
 
