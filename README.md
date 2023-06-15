@@ -26,8 +26,10 @@
   <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
   <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
   <br>
+
+  
+<p align="center> 은행 / 건강관리 / 게시판은 혼자 공부하려고 정리했던 내용입니다.</p>
 </div>
 
 
 
-<p align="center> 은행 / 건강관리 / 게시판은 혼자 공부하려고 정리했던 내용입니다.</p>
